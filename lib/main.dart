@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:libreria_examen/providers/libro_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:libreria_examen/screens/lista_libro.dart';
-
 void main() {
   runApp(MyApp());
 }
@@ -22,11 +21,13 @@ class MyApp extends StatelessWidget {
         ),
         home: Scaffold(
           appBar: AppBar(
-            title: Text('Stephen King Library'),
+            title: Text('Your App Title'),
           ),
-          body: BookListScreen(),
+          body:
+              bookListScreen(), // Ensure bookListScreen is embedded within a Material widget
         ),
       ),
     );
   }
 }
+

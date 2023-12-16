@@ -3,22 +3,23 @@ import 'package:libreria_examen/providers/libro_provider.dart';
 import 'package:libreria_examen/screens/detalle_libro.dart';
 import 'package:provider/provider.dart';
 
-class BookListScreen extends StatefulWidget {
+class bookListScreen extends StatefulWidget {
   @override
   _BookListScreenState createState() => _BookListScreenState();
 }
 
-class _BookListScreenState extends State<BookListScreen> {
+class _BookListScreenState extends State<bookListScreen> {
   @override
   void initState() {
     super.initState();
     Future.microtask(() =>
-        Provider.of<BookListProvider>(context, listen: false).fetchBooks());
+        Provider.of<BookListProvider>(context, listen: false).fetchBook());
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // Wrap your widget with a Scaffold
       appBar: AppBar(
         title: Text('Book List'),
       ),
@@ -35,12 +36,11 @@ class _BookListScreenState extends State<BookListScreen> {
                 title: Text(book.title),
                 subtitle: Text(book.description),
                 onTap: () {
+                  // Implement navigation to book details
                   Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => BookDetailScreen(book: book),
-                    ),
-                  );
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => bookDetailScreen(book: book)));
                 },
               );
             },
