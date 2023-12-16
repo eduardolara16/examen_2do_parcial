@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:libreria_examen/models/libro.dart';
 
-class bookDetailScreen extends StatelessWidget {
+class BookDetailScreen extends StatelessWidget {
   final Book book;
-  bookDetailScreen({required this.book});
+
+  BookDetailScreen({required this.book});
 
   @override
   Widget build(BuildContext context) {
@@ -28,9 +29,7 @@ class bookDetailScreen extends StatelessWidget {
             ),
             Text(
               '${book.description}',
-              style: const TextStyle(
-                fontSize: 16,
-              ),
+              style: const TextStyle(fontSize: 16),
             ),
             const SizedBox(height: 10),
             const Text(

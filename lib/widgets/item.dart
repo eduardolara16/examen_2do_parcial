@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:libreria_examen/models/libro.dart';
+//import 'package:libreria_examen/models/libro.dart';
 
 class LibroItem extends StatelessWidget {
   //final Libro libro;

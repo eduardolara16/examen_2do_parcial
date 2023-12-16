@@ -22,10 +22,9 @@ class MyApp extends StatelessWidget {
         ),
         home: Scaffold(
           appBar: AppBar(
-            title: Text('Probando'),
+            title: Text('Stephen King Library'),
           ),
-          body:
-              bookListScreen(), 
+          body: BookListScreen(),
         ),
       ),
     );
