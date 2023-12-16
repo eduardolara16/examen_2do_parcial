@@ -18,13 +18,15 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.teal,
           visualDensity: VisualDensity.adaptivePlatformDensity,
+          appBarTheme: AppBarTheme(
+            backgroundColor: Colors.red, 
+          ),
         ),
         home: Scaffold(
           appBar: AppBar(
-            title: Text('Your App Title'),
+            title: Text('Stephen King Library'),
           ),
-          body:
-              bookListScreen(), // Ensure bookListScreen is embedded within a Material widget
+          body: BookListScreen(),
         ),
       ),
     );

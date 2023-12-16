@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:libreria_examen/models/libro.dart';
 
-class bookDetailScreen extends StatelessWidget {
+class BookDetailScreen extends StatelessWidget {
   final Book book;
-  bookDetailScreen({required this.book});
+  BookDetailScreen({required this.book});
 
   @override
   Widget build(BuildContext context) {
@@ -16,26 +16,27 @@ class bookDetailScreen extends StatelessWidget {
           children: [
             Text(
               'Title: ${book.title}',
-              style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: const Color.fromARGB(255, 137, 183, 221)), // Cambia el color aquí
             ),
             Text(
               'ID: ${book.id}',
-              style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Color.fromARGB(255, 131, 165, 227)), // Cambia el color aquí
             ),
             const Text(
               'Description: ',
-              style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Color.fromARGB(255, 131, 126, 209)), // Cambia el color aquí
             ),
             Text(
               '${book.description}',
-              style: const TextStyle(
-                fontSize: 16,
+              style: TextStyle(
+              fontSize: 16,
+                color: Color.fromARGB(255, 198, 117, 191), // Cambia el color aquí
               ),
             ),
             const SizedBox(height: 10),
             const Text(
               'Villains:',
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.purple), // Cambia el color aquí
             ),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
