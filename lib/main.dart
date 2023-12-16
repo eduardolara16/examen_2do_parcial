@@ -1,22 +1,27 @@
 import 'package:flutter/material.dart';
+import 'package:libreria_examen/screens/libros_screen.dart';
+import 'package:provider/provider.dart';
+import 'package:libreria_examen/providers/libro_provider.dart';
 
 void main() {
-  runApp(const MainApp());
+  runApp(
+    ChangeNotifierProvider(
+      create: (context) => LibrosProvider(),
+      child: MyApp(),
+    ),
+  );
 }
 
-class MainApp extends StatelessWidget {
-  const MainApp({super.key});
-
+class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: Text('Hello World!'),
-        ),
+    return MaterialApp(
+      title: 'Mi Aplicación de Libros',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
+      home: ListaLibrosScreen(),
     );
   }
 }
-
-

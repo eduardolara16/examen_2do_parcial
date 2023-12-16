@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:libreria_examen/services/api_service.dart';
+import 'package:libreria_examen/widgets/item.dart';
+
+import 'package:libreria_examen/providers/libro_provider.dart';
+import 'package:provider/provider.dart';
 
 class ListaLibrosScreen extends StatefulWidget {
   @override
@@ -7,30 +10,16 @@ class ListaLibrosScreen extends StatefulWidget {
 }
 
 class _ListaLibrosScreenState extends State<ListaLibrosScreen> {
-  ApiService apiService = ApiService();
-  List<Map<String, dynamic>> libros = [];
-
   @override
   void initState() {
     super.initState();
-    cargarLibros();
-  }
-
-  Future<void> cargarLibros() async {
-    try {
-      List<Map<String, dynamic>> librosCargados =
-          await apiService.obtenerLibros();
-      setState(() {
-        libros = librosCargados;
-      });
-    } catch (error) {
-      print('Error al cargar los libros: $error');
-      
-    }
+    Provider.of<LibrosProvider>(context, listen: false).cargarLibros();
   }
 
   @override
   Widget build(BuildContext context) {
+    final libros = Provider.of<LibrosProvider>(context).libros;
+
     return Scaffold(
       appBar: AppBar(
         title: Text('Lista de Libros'),
@@ -40,12 +29,7 @@ class _ListaLibrosScreenState extends State<ListaLibrosScreen> {
           : ListView.builder(
               itemCount: libros.length,
               itemBuilder: (context, index) {
-                Map<String, dynamic> libro = libros[index];
-              
-                return ListTile(
-                  title: Text(libro['titulo']),
-                  subtitle: Text(libro['autor']),
-                );
+                return LibroItem(libro: libros[index]);
               },
             ),
     );
